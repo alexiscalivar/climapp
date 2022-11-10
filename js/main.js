@@ -6,6 +6,21 @@ const weatherField = document.querySelector(".weather3 span");
 const searchField = document.querySelector(".searchField");
 const form = document.querySelector("form");
 const btnSwitch = document.querySelector('#switch');
+const typed = new Typed('.typed', {
+  strings: ["Bienvenido a Climapp", "Proyecto Final JS", "Coderhouse", "Desarrollo Alexis Calivar", "Profesor Adrian Gonzales"],
+  stringsElement: '#cadenas-texto',
+  typeSpeed: 75,
+  startDelay: 300,
+  backSpeed: 75,
+  smartBackspace: true,
+  shuffle: false,
+  backDelay: 1500,
+  loop: true,
+  loopCount: false,
+  showCursor: true,
+  cursorChar: '|',
+  contentType: 'html',
+});
 
 btnSwitch.addEventListener('click', () => {
   document.body.classList.toggle('color'); 
