@@ -41,14 +41,13 @@ header{
 }
 
 .weather {
-    z-index: 2;
     display: flex;
     align-items: center;
     color: black;
   }
   
   .weather > div {
-    margin: 0.625rem;
+    margin: 0.6rem;
   }
   
   .weather1 {
@@ -59,7 +58,7 @@ header{
     font-size: 2rem;
   }
   .weather span {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
   
   .weather3 span {
@@ -69,6 +68,12 @@ header{
   .weather3 img {
     width: 2rem;
   }
+  
+
+.container1 {
+  margin: 0.3rem;
+  font-size: 1rem;
+}
 
 nav{
     height: 100px;
@@ -128,4 +133,12 @@ nav form button{
     cursor: pointer;
     outline: 0;
     border: 0;
+}
+
+.detalles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 30%;
 }

@@ -7,7 +7,7 @@ const searchField = document.querySelector(".searchField");
 const form = document.querySelector("form");
 const btnSwitch = document.querySelector('#switch');
 const typed = new Typed('.typed', {
-  strings: ["Bienvenido a Climapp", "Proyecto Final JS", "Coderhouse", "Desarrollo Alexis Calivar", "Profesor Adrian Gonzales"],
+  strings: ["Bienvenido a Climapp", "Proyecto Final JS", "Coderhouse", "Desarrollo Alexis Calivar", "Profesor Adrián González"],
   stringsElement: '#cadenas-texto',
   typeSpeed: 75,
   startDelay: 300,
@@ -21,6 +21,9 @@ const typed = new Typed('.typed', {
   cursorChar: '|',
   contentType: 'html',
 });
+const cloudOutput = document.querySelector(".cloud")
+const humidityOutput = document.querySelector(".humidity")
+const windOutput = document.querySelector(".wind")
 
 btnSwitch.addEventListener('click', () => {
   document.body.classList.toggle('color'); 
@@ -53,17 +56,18 @@ const fetchData = async (target) => {
         current: {
           temp_c,
           condition: { text, icon },
-        },
+          wind_kph, humidity, cloud,
+        } ,
         location: { name, localtime },
       } = data;
   
-      updateDom(temp_c, name, localtime, icon, text);
+      updateDom(temp_c, name, localtime, icon, text, wind_kph, humidity, cloud);
     } catch (error) {
       alert("Escribiste mal o no existe tu busqueda");
     }
   };
 
-function updateDom(temperate, city, time, emoji, text) {
+function updateDom(temperate, city, time, emoji, text, cloud, humidity, wind_kph) {
   const exactTime = time.split(" ")[1];
   const exactDate = time.split(" ")[0];
   const exactDay = getDayFullName(new Date(exactDate).getDay());
@@ -73,6 +77,9 @@ function updateDom(temperate, city, time, emoji, text) {
   dateField.innerText = `${exactTime} - ${exactDay}   ${exactDate}`;
   emojiField.src = emoji;
   weatherField.innerText = text;
+  cloudOutput.innerText = cloud + "%";
+  humidityOutput.innerText = humidity + "%";
+  windOutput.innerText = wind_kph + "km/h";
 }
 
 fetchData(target);
